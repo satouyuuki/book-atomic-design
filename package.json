@@ -5,6 +5,7 @@
   "author": "Yusuke Goto",
   "license": "MIT",
   "repository": {},
+  "homepage": "./",
   "scripts": {
     "test": "cross-env STORY_SHOTS=1 jest",
     "storybook": "start-storybook -p 6006 -s ./assets",
