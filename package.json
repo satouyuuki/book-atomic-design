@@ -14,11 +14,10 @@
     "test:visual": "backstop test",
     "approve:visual": "backstop approve",
     "report:visual": "backstop openReport",
-    "build": "mkdirp ./build && cpx \"./src/index.html\" ./build && cpx \"./assets/**/*.*\" ./build && webpack && ws -d ./build",
+    "build": "mkdirp ./docs && cpx \"./src/index.html\" ./docs && cpx \"./assets/**/*.*\" ./docs && webpack && ws -d ./docs",
     "svg": "svg-sprite-generate -d ./assets/icons -o ./assets/icons.svg",
     "checkpoint": "node scripts/checkpoint.js"
   },
-  "homepage": "https://satouyuuki.github.io/book-atomic-design",
   "dependencies": {
     "moment": "^2.19.2",
     "react": "15.6.2",

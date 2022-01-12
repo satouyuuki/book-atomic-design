@@ -5,7 +5,7 @@ const path = require('path');
 const projDir = path.resolve(__dirname, '..');
 
 const src = `${ projDir }/src`;
-const dest = `${ projDir }/build/static`;
+const dest = `${ projDir }/docs/static`;
 
 module.exports = {
 

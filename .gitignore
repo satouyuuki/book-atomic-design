@@ -2,7 +2,7 @@
 .vscode/
 node_modules/
 # production
-# /build
+# /docs
 .DS_Store
 *.tgz
 my-app*
