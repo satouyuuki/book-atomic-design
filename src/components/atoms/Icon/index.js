@@ -7,13 +7,13 @@ export const IconPresenter = ({
   width = 20,
   ...props,
 }) => (
-  <img
-    src={`icons/${ iconName }.svg`}
-    alt=""
+  <svg
     height={ height }
     width={ width }
     { ...props }
-  />
+  >
+    <use href={`icons.svg#${ iconName }`} />
+  </svg>
 );
 
 export const IconContainer = ({

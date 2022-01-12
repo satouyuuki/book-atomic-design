@@ -49472,12 +49472,14 @@ var IconPresenter = function IconPresenter(_ref) {
       width = _ref$width === undefined ? 20 : _ref$width,
       props = _objectWithoutProperties(_ref, ['iconName', 'height', 'width']);
 
-  return _react2.default.createElement('img', _extends({
-    src: 'icons/' + iconName + '.svg',
-    alt: '',
-    height: height,
-    width: width
-  }, props));
+  return _react2.default.createElement(
+    'svg',
+    _extends({
+      height: height,
+      width: width
+    }, props),
+    _react2.default.createElement('use', { href: 'icons.svg#' + iconName })
+  );
 };
 
 IconPresenter.displayName = 'IconPresenter';
