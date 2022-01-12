@@ -4,7 +4,7 @@ import Notification from './index.js';
 
 const notification = {
   id: 0,
-  thumbnail: '/mock/images/img01.jpg',
+  thumbnail: 'mock/images/img01.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第1話',
   channelName: 'UI チャンネル',
   startAt: 1507032000000,

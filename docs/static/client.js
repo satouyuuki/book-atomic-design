@@ -49877,56 +49877,56 @@ Object.defineProperty(exports, "__esModule", {
 });
 var notifications = exports.notifications = [{
   id: 0,
-  thumbnail: '/mock/images/img01.jpg',
+  thumbnail: 'mock/images/img01.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第1話',
   channelName: 'UI チャンネル',
   startAt: 1507032000000,
   endAt: 1507035600000
 }, {
   id: 1,
-  thumbnail: '/mock/images/img02.jpg',
+  thumbnail: 'mock/images/img02.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第2話',
   channelName: 'UI チャンネル',
   startAt: 1507035600000,
   endAt: 1507039200000
 }, {
   id: 2,
-  thumbnail: '/mock/images/img01.jpg',
+  thumbnail: 'mock/images/img01.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第1話',
   channelName: 'UI チャンネル',
   startAt: 1507032000000,
   endAt: 1507035600000
 }, {
   id: 3,
-  thumbnail: '/mock/images/img02.jpg',
+  thumbnail: 'mock/images/img02.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第2話',
   channelName: 'UI チャンネル',
   startAt: 1507035600000,
   endAt: 1507039200000
 }, {
   id: 4,
-  thumbnail: '/mock/images/img01.jpg',
+  thumbnail: 'mock/images/img01.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第1話',
   channelName: 'UI チャンネル',
   startAt: 1507032000000,
   endAt: 1507035600000
 }, {
   id: 5,
-  thumbnail: '/mock/images/img02.jpg',
+  thumbnail: 'mock/images/img02.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第2話',
   channelName: 'UI チャンネル',
   startAt: 1507035600000,
   endAt: 1507039200000
 }, {
   id: 6,
-  thumbnail: '/mock/images/img01.jpg',
+  thumbnail: 'mock/images/img01.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第1話',
   channelName: 'UI チャンネル',
   startAt: 1507032000000,
   endAt: 1507035600000
 }, {
   id: 7,
-  thumbnail: '/mock/images/img02.jpg',
+  thumbnail: 'mock/images/img02.jpg',
   title: 'コンポーネント指向で UI を設計しよう！第2話',
   channelName: 'UI チャンネル',
   startAt: 1507035600000,
