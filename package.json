@@ -18,6 +18,7 @@
     "svg": "svg-sprite-generate -d ./assets/icons -o ./assets/icons.svg",
     "checkpoint": "node scripts/checkpoint.js"
   },
+  "homepage": "https://satouyuuki.github.io/book-atomic-design",
   "dependencies": {
     "moment": "^2.19.2",
     "react": "15.6.2",
