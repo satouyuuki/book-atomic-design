@@ -48894,6 +48894,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _react = __webpack_require__(12);
 
 var _react2 = _interopRequireDefault(_react);
@@ -48904,27 +48906,70 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var ImgPresenter = function ImgPresenter(props) {
-    return _react2.default.createElement('img', props);
+var ImgPresenter = function ImgPresenter(_ref) {
+    var src = _ref.src,
+        srcSet = _ref.srcSet,
+        webpSrcSet = _ref.webpSrcSet,
+        alt = _ref.alt,
+        width = _ref.width,
+        height = _ref.height,
+        props = _objectWithoutProperties(_ref, ['src', 'srcSet', 'webpSrcSet', 'alt', 'width', 'height']);
+
+    return _react2.default.createElement(
+        'picture',
+        props,
+        _react2.default.createElement('source', { srcSet: webpSrcSet, type: 'image/webp' }),
+        _react2.default.createElement('img', { src: src,
+            alt: alt,
+            srcSet: srcSet,
+            width: width,
+            height: height })
+    );
 };
 
 ImgPresenter.displayName = 'ImgPresenter';
+var riasRegexp = /images\/([0-9]+)\/([0-9]+)/;
+
 function createSrc(src, width, height) {
     if (!width || !height) return src;
-    return src.replace(/images\/([0-9]+)\/([0-9]+)/, function (match, p1, p2) {
-        return 'images/' + width + '/' + height;
+
+    var ratio = window.devicePixelRatio || 1;
+    var w = width * ratio;
+    var h = height * ratio;
+    return src.replace(riasRegexp, function (match, p1, p2) {
+        return 'images/' + w + '/' + h;
     });
 }
 
-var ImgContainer = function ImgContainer(_ref) {
-    var presenter = _ref.presenter,
-        src = _ref.src,
-        width = _ref.width,
-        height = _ref.height,
-        props = _objectWithoutProperties(_ref, ['presenter', 'src', 'width', 'height']);
+function createSrcSet(src, width, height, extension) {
+    if (extension) {
+        src = src.replace(/\.[a-z0-9]+[^#\?]?/, '.' + extension);
+    }
+    if (!riasRegexp.test(src) || !width || !height) return src;
 
+    var _src$split = src.split('images/'),
+        _src$split2 = _slicedToArray(_src$split, 2),
+        path = _src$split2[0],
+        rest = _src$split2[1];
+
+    var file = rest.match(".+/(.+?)([\?#;].*)?$")[1];
+
+    return [1, 1.5, 2, 3, 4].map(function (dpr) {
+        return path + 'images/' + width * dpr + '/' + height * dpr + '/' + file + ' ' + dpr + 'x';
+    }).join(', ');
+}
+
+var ImgContainer = function ImgContainer(_ref2) {
+    var presenter = _ref2.presenter,
+        src = _ref2.src,
+        width = _ref2.width,
+        height = _ref2.height,
+        props = _objectWithoutProperties(_ref2, ['presenter', 'src', 'width', 'height']);
+
+    var srcSet = createSrcSet(src, width, height);
+    var webpSrcSet = createSrcSet(src, width, height, 'webp');
     src = createSrc(src, width, height);
-    return presenter(_extends({ src: src, width: width, height: height }, props));
+    return presenter(_extends({ src: src, srcSet: srcSet, webpSrcSet: webpSrcSet, width: width, height: height }, props));
 };
 
 var Img = (0, _HoC.containPresenter)(ImgContainer, ImgPresenter);
